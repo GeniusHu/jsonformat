@@ -1,0 +1,270 @@
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.json-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  height: 70vh;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.input-section,
+.output-section {
+  background: var(--card-background);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--card-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 统一的按钮基础样式 */
+.action-btn,
+.format-btn {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 普通按钮样式 */
+.action-btn {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #495057;
+}
+
+.action-btn:hover {
+  background: var(--hover-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Format 按钮样式 */
+.format-btn {
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.format-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* 键盘快捷键样式 */
+.keyboard-shortcut {
+  margin-left: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 暗色主题按钮样式 */
+[data-theme="dark"] .action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .action-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.editor-content {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.line-numbers {
+  padding: 1.5rem 0.75rem;
+  border-right: 1px solid var(--border-color);
+  background: var(--editor-background);
+  color: #8b949e;  /* 柔和的灰蓝色 */
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: right;
+  user-select: none;
+  overflow-y: hidden;
+  min-width: 3.5ch;
+}
+
+.line-numbers span {
+  display: block;
+  color: #8b949e;
+}
+
+textarea,
+.output-area {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  border: none;
+  resize: none;
+  background: var(--editor-background);
+  color: var(--text-color);
+  overflow: auto;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* JSON 语法高亮 */
+.json-key {
+  color: #d33682;  /* 玫瑰红 */
+}
+
+.json-string {
+  color: #2aa198;  /* 青绿色 */
+}
+
+.json-number {
+  color: #cb4b16;  /* 橙色 */
+}
+
+.json-boolean {
+  color: #268bd2;  /* 蓝色 */
+}
+
+.json-null {
+  color: #93a1a1;  /* 灰色 */
+}
+
+.output-area {
+  tab-size: 2;
+}
+
+/* 主题变量 */
+:root {
+  --primary-color: #00BCD4;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --hover-color: rgba(0, 0, 0, 0.04);
+  --text-color: #2c3e50;
+  --text-secondary: #8b949e;
+  --card-background: #ffffff;
+  --editor-background: #fafafa;
+  --button-secondary-bg: #f5f5f5;
+  --button-secondary-hover-bg: #e8e8e8;
+}
+
+[data-theme="dark"] {
+  --primary-color: #00BCD4;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --hover-color: rgba(255, 255, 255, 0.04);
+  --text-color: #e2e8f0;
+  --text-secondary: #8b949e;
+  --card-background: #1a202c;
+  --editor-background: #161b22;
+  --button-secondary-bg: rgba(255, 255, 255, 0.1);
+  --button-secondary-hover-bg: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .json-editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 格式选项样式 */
+.format-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.format-tab {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 未选中状态的悬停效果 */
+.format-tab:hover:not(.selected) {
+  background: var(--hover-color);
+}
+
+/* 选中状态 */
+.format-tab.selected {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  border-color: var(--accent-color);
+}
+
+/* 转换按钮 */
+.convert-btn {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.convert-btn:hover {
+  background: var(--accent-hover);
+}
+
+.convert-btn:active {
+  transform: translateY(1px);
+}
