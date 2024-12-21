@@ -4,7 +4,6 @@ import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/jsonformat/', // 指定部署的子路径
   plugins: [
     react(),
     compression({
@@ -13,7 +12,7 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir:'docs',
+    outDir:'dist',
     minify: 'terser',
     terserOptions: {
       compress: {
