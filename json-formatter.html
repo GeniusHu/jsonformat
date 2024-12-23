@@ -120,23 +120,25 @@
             <p>Format and beautify your JSON data with custom indentation and syntax highlighting</p>
         </div>
 
-        <div class="settings-bar">
-            <div class="select-group">
-                <label>Indent:</label>
-                <select id="indent-size" class="select">
-                    <option value="2">2 spaces</option>
-                    <option value="4" selected>4 spaces</option>
-                    <option value="tab">Tab</option>
-                </select>
+        <div class="settings-bar-container">
+            <div class="settings-bar">
+                <div class="select-group">
+                    <label>Indent:</label>
+                    <select id="indent-size" class="select">
+                        <option value="2">2 spaces</option>
+                        <option value="4" selected>4 spaces</option>
+                        <option value="tab">Tab</option>
+                    </select>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" id="sort-keys">
+                    <span>Sort Keys</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="line-numbers" checked>
+                    <span>Line Numbers</span>
+                </label>
             </div>
-            <label class="checkbox">
-                <input type="checkbox" id="sort-keys">
-                <span>Sort Keys</span>
-            </label>
-            <label class="checkbox">
-                <input type="checkbox" id="line-numbers" checked>
-                <span>Line Numbers</span>
-            </label>
         </div>
 
         <div class="editors">

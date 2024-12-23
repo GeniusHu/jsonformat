@@ -93,9 +93,7 @@ nav a.active::after {
 .editors {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 0 auto;
-    min-height: 600px;
+    gap: 20px;
     background: #fff;
 }
 
@@ -105,8 +103,7 @@ nav a.active::after {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    height: 600px;
-    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -264,7 +261,8 @@ nav a.active::after {
 .CodeMirror-scroll {
     overflow-x: auto !important;
     overflow-y: scroll !important;
-    max-width: 100%;
+    max-width: 40%;
+    height: 100%;
 }
 
 .CodeMirror-wrap pre {
@@ -349,172 +347,7 @@ nav a.active::after {
     }
 }
 
-/* Hero 区域样式 */
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-.hero .subtitle {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-/* 工具卡片样式 */
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.tool-card {
-    background: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.2s;
-}
-
-.tool-card:hover {
-    transform: translateY(-4px);
-}
-
-.tool-card h3 {
-    margin: 0 0 1rem 0;
-    color: var(--primary-color);
-}
-
-.tool-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.tool-card li {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.tool-card li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-}
-
-.tool-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* 快速操作按钮样式 */
-.quick-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.action-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 500;
-    transition: transform 0.2s;
-}
-
-.action-button.primary {
-    background: var(--primary-color);
-    color: white;
-}
-
-.action-button:not(.primary) {
-    background: white;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-}
-
-.action-button:hover {
-    transform: translateY(-2px);
-}
-
-/* 工具栏和设置栏样式 */
-.settings-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 1.5rem;
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.select-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.select-group label {
-    color: #666;
-    font-weight: 500;
-}
-
-.select {
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: white;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.select:hover {
-    border-color: var(--primary-color);
-}
-
-.checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.checkbox input {
-    width: 1rem;
-    height: 1rem;
-}
-
-.checkbox span {
-    color: #666;
-    font-weight: 500;
-}
-
-/* 按钮组样式 */
-.editor-actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
+/* 响应式调整 */
 @media (max-width: 768px) {
     .editor-actions {
         justify-content: flex-start;
@@ -536,13 +369,13 @@ nav a.active::after {
 /* 响应式调整 */
 @media (max-width: 1200px) {
     .editors {
-        width: 90%;
+        width: auto;
     }
 }
 
 @media (max-width: 768px) {
     .editors {
-        width: 95%;
+        width: auto;
         grid-template-columns: 1fr;
         height: auto;
     }
@@ -551,3 +384,40 @@ nav a.active::after {
         height: 600px;
     }
 }
+
+.tool-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f8f9fa;
+    width: 100%;
+}
+
+.settings-bar-container {
+    width: 100%;
+    background: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.settings-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.select-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 

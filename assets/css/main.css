@@ -2,4 +2,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    height: 100%; /* 当前设置的高度可能不生效 */
+    height: 40vh; /* 高度占视口高度的 40% */
 } 

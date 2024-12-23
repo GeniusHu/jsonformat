@@ -1,7 +1,8 @@
 .validator-main {
-    max-width: 100%;
+    width: 40%;
+    height: 40%;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 60px);
@@ -9,20 +10,18 @@
 
 .editors-wrapper {
     flex: 1;
-    min-height: 350px;
+    min-height: 400px;
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .settings-bar {
     max-width: 1000px;
-    margin: 0 auto 5px;
-    background: #ffffff;
-    border-radius: 8px;
+    margin: 0 auto 10px;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .validation-options {
@@ -94,7 +93,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    height: 100%;
+    height: 40vh;
+    min-height: 400px;
+    width: 40%;
 }
 
 .editor-container {
@@ -137,22 +138,45 @@
 .validation-status {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     font-size: 0.95rem;
+    line-height: 1;
 }
 
 .status-icon {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 .status-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    margin-top: 1px;
+}
+
+#status-text {
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .status-pending {
     color: #f39c12;
+}
+
+.status-pending svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 576px) {
+    .status-icon svg {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 .status-valid {
@@ -164,14 +188,11 @@
 }
 
 .schema-container {
+    display: none;
     background: #ffffff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.schema-container.hidden {
-    display: none;
 }
 
 /* CodeMirror Customization */
@@ -222,6 +243,7 @@
 
     .editors {
         grid-template-columns: 1fr;
+        padding: 0 10px;
     }
 
     .settings-bar {
@@ -238,6 +260,10 @@
     .action-buttons {
         width: auto;
         justify-content: center;
+    }
+
+    .editors {
+        width: 60%;
     }
 }
 
@@ -262,5 +288,11 @@
 
     .editors-wrapper {
         height: 70vh;
+    }
+
+    .editors {
+        grid-template-columns: 1fr;
+        width: 95%;
+        padding: 0 5px;
     }
 } 
