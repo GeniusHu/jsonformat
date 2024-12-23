@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Validator - Check JSON Syntax & Schema | Free Online Tool</title>
+    <meta name="description" content="Free online JSON validator to check syntax errors and validate against JSON Schema. Real-time error detection, line highlighting, and detailed error messages. Perfect for developers." />
+    <meta name="keywords" content="json validator, json syntax checker, json schema validator, validate json online, json error checker, json lint" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Validator",
+      "description": "Online tool to validate JSON syntax and schema",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "featureList": [
+        "JSON Syntax Validation",
+        "Schema Validation",
+        "Error Detection",
+        "Line Highlighting",
+        "Error Messages",
+        "Real-time Validation"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsonformatter.org/json-validator" />
+    <meta property="og:title" content="JSON Validator - Check JSON Syntax & Schema | Free Online Tool" />
+    <meta property="og:description" content="Free online JSON validator to check syntax errors and validate against JSON Schema. Real-time error detection, line highlighting, and detailed error messages. Perfect for developers." />
+    <meta property="og:image" content="https://jsonformatter.org/og-image-validator.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jsonformatter.org/json-validator" />
+    <meta name="twitter:title" content="JSON Validator - Check JSON Syntax & Schema | Free Online Tool" />
+    <meta name="twitter:description" content="Free online JSON validator to check syntax errors and validate against JSON Schema. Real-time error detection, line highlighting, and detailed error messages. Perfect for developers." />
+    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image-validator.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-validator" />
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-3cfb730f.js"></script>
+  <link rel="stylesheet" href="/assets/main-1c615f1a.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator" class="active">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tool-header">
+            <h1>JSON Validator</h1>
+            <p class="tool-description">Validate JSON syntax and check against JSON Schema with real-time error detection</p>
+        </section>
+
+        <section class="tool-container">
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button id="validate" class="primary-button">
+                        <span class="icon">✓</span>
+                        Validate
+                    </button>
+                    <button id="clear">Clear</button>
+                    <button id="format">Format</button>
+                </div>
+                <div class="toolbar-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="real-time-validation" checked>
+                        Real-time Validation
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="show-line-numbers" checked>
+                        Show Line Numbers
+                    </label>
+                </div>
+                <div class="toolbar-group">
+                    <button id="upload-json">Upload JSON</button>
+                    <button id="download">Download</button>
+                    <button id="copy">Copy</button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-wrapper">
+                    <h3>JSON Input</h3>
+                    <div id="json-input" class="editor"></div>
+                </div>
+                <div class="validation-results">
+                    <h3>Validation Results</h3>
+                    <div id="validation-output"></div>
+                </div>
+            </div>
+
+            <div class="schema-container">
+                <div class="schema-header">
+                    <h3>JSON Schema (Optional)</h3>
+                    <button id="generate-schema">Generate Schema</button>
+                </div>
+                <div id="schema-editor" class="editor"></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Syntax Validation</h3>
+                    <p>Instantly detect JSON syntax errors with detailed error messages and line highlighting</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Schema Validation</h3>
+                    <p>Validate your JSON data against JSON Schema with support for all schema versions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Validation</h3>
+                    <p>Get instant feedback as you type with our real-time validation feature</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Error Detection</h3>
+                    <p>Precise error location and helpful suggestions to fix common JSON issues</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <h2>How to Use</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Paste JSON</h3>
+                    <p>Paste your JSON data into the editor or use the Upload button to load a JSON file</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Add Schema (Optional)</h3>
+                    <p>If you want to validate against a schema, paste your JSON Schema or generate one automatically</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Validate</h3>
+                    <p>Click the Validate button or enable real-time validation for instant feedback</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Review Results</h3>
+                    <p>Check the validation results panel for any errors or confirmation of valid JSON</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools">
+            <h2>Related Tools</h2>
+            <div class="tools-grid">
+                <a href="/json-formatter" class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3>JSON Formatter</h3>
+                    <p>Format and beautify your JSON data</p>
+                </a>
+                <a href="/json-editor" class="tool-card">
+                    <div class="tool-icon">✎</div>
+                    <h3>JSON Editor</h3>
+                    <p>Edit and modify JSON with advanced features</p>
+                </a>
+                <a href="/json-schema-generator" class="tool-card">
+                    <div class="tool-icon">⚙️</div>
+                    <h3>Schema Generator</h3>
+                    <p>Generate JSON Schema from your data</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>What is JSON validation?</h3>
+                <p>JSON validation is the process of checking whether a JSON document follows the correct syntax rules and optionally conforms to a specified schema structure.</p>
+            </div>
+            <div class="question">
+                <h3>How do I fix common JSON syntax errors?</h3>
+                <p>Common JSON syntax errors include missing quotes around property names, trailing commas, and unmatched brackets. Our validator helps identify these issues with precise error messages.</p>
+            </div>
+            <div class="question">
+                <h3>Can I validate against a JSON Schema?</h3>
+                <p>Yes, you can paste your JSON Schema in the schema editor to validate your JSON data against it. You can also generate a schema automatically from your JSON data.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>JSON Tools</h4>
+                <nav>
+                    <a href="/json-formatter">JSON Formatter</a>
+                    <a href="/json-validator">JSON Validator</a>
+                    <a href="/json-editor">JSON Editor</a>
+                    <a href="/json-beautifier">JSON Beautifier</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Advanced Tools</h4>
+                <nav>
+                    <a href="/xml-formatter">XML Formatter</a>
+                    <a href="/json-diff">JSON Diff</a>
+                    <a href="/json-schema-generator">Schema Generator</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <nav>
+                    <a href="/tutorials">Tutorials</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/docs">Documentation</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <nav>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html> 

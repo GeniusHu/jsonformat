@@ -1,0 +1,266 @@
+.validator-main {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px);
+}
+
+.editors-wrapper {
+    flex: 1;
+    min-height: 350px;
+    margin-bottom: 0;
+}
+
+.settings-bar {
+    max-width: 1000px;
+    margin: 0 auto 5px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.validation-options {
+    display: flex;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.checkbox input {
+    cursor: pointer;
+}
+
+.checkbox span {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.btn.primary {
+    background: #3498db;
+    color: #ffffff;
+}
+
+.btn.primary:hover {
+    background: #2980b9;
+}
+
+.editors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    height: 100%;
+}
+
+.editor-container {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.editor-header h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editor {
+    height: calc(100% - 60px);
+    border: none;
+    flex: 1;
+}
+
+.validation-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.status-icon {
+    display: flex;
+    align-items: center;
+}
+
+.status-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.status-valid {
+    color: #2ecc71;
+}
+
+.status-invalid {
+    color: #e74c3c;
+}
+
+.schema-container {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.schema-container.hidden {
+    display: none;
+}
+
+/* CodeMirror Customization */
+.CodeMirror {
+    height: 100% !important;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.CodeMirror-gutters {
+    border-right: 1px solid #e9ecef;
+    background: #f8f9fa;
+}
+
+.CodeMirror-linenumber {
+    color: #6c757d;
+}
+
+.cm-s-default .cm-string {
+    color: #2ecc71;
+}
+
+.cm-s-default .cm-number {
+    color: #e74c3c;
+}
+
+.cm-s-default .cm-property {
+    color: #3498db;
+}
+
+/* Error Styling */
+.CodeMirror-lint-marker-error {
+    width: 16px;
+    height: 16px;
+}
+
+.CodeMirror-lint-message-error {
+    background-image: none;
+    padding-left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .editors-wrapper {
+        height: 60vh;
+    }
+
+    .editors {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-bar {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .validation-options {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .action-buttons {
+        width: auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .validator-main {
+        padding: 10px;
+    }
+
+    .editor {
+        height: 400px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .editors-wrapper {
+        height: 70vh;
+    }
+} 

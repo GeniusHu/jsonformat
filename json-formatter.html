@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/assets/codemirror/addon/lint/lint.css">
+    <link rel="stylesheet" href="/assets/codemirror/addon/fold/foldgutter.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Formatter - Beautify & Format JSON Online | Free Tool</title>
+    <meta name="description" content="Free online JSON formatter and beautifier with syntax highlighting. Format JSON data with custom indentation, validate syntax, and make JSON readable. Perfect for developers." />
+    <meta name="keywords" content="json formatter, json beautifier, format json online, pretty print json, json pretty printer, json syntax highlighter" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Formatter",
+      "description": "Online tool to format and beautify JSON data",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "featureList": [
+        "JSON Formatting",
+        "Syntax Highlighting",
+        "Custom Indentation",
+        "Real-time Preview",
+        "Copy & Download",
+        "Error Detection"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsonformatter.org/json-formatter" />
+    <meta property="og:title" content="JSON Formatter - Beautify & Format JSON Online | Free Tool" />
+    <meta property="og:description" content="Free online JSON formatter and beautifier with syntax highlighting. Format JSON data with custom indentation, validate syntax, and make JSON readable. Perfect for developers." />
+    <meta property="og:image" content="https://jsonformatter.org/og-image-formatter.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jsonformatter.org/json-formatter" />
+    <meta name="twitter:title" content="JSON Formatter - Beautify & Format JSON Online | Free Tool" />
+    <meta name="twitter:description" content="Free online JSON formatter and beautifier with syntax highlighting. Format JSON data with custom indentation, validate syntax, and make JSON readable. Perfect for developers." />
+    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image-formatter.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-formatter" />
+
+    <!-- 第三方库 -->
+    <script src="/assets/libs/jsonlint.js"></script>
+    
+    <!-- CodeMirror -->
+    <script src="/assets/codemirror/lib/codemirror.js"></script>
+    <script src="/assets/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/assets/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="/assets/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="/assets/codemirror/addon/fold/foldcode.js"></script>
+    <script src="/assets/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="/assets/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="/assets/codemirror/addon/lint/lint.js"></script>
+    <script src="/assets/codemirror/addon/lint/json-lint.js"></script>
+
+    <script>
+        // 定义全局 lint 函数
+        window.jsonlint = {
+            parser: {
+                parse: function(text) {
+                    try {
+                        JSON.parse(text);
+                        return [];
+                    } catch (e) {
+                        return [{
+                            from: CodeMirror.Pos(0, 0),
+                            to: CodeMirror.Pos(0, text.length),
+                            message: e.message
+                        }];
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Toast 容器 -->
+    <div id="toast-container"></div>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter" class="active">JSON Formatter</a>
+            <a href="/json-validator">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main class="formatter-main">
+        <div class="tool-header">
+            <h1>JSON Formatter</h1>
+            <p>Format and beautify your JSON data with custom indentation and syntax highlighting</p>
+        </div>
+
+        <div class="settings-bar">
+            <div class="select-group">
+                <label>Indent:</label>
+                <select id="indent-size" class="select">
+                    <option value="2">2 spaces</option>
+                    <option value="4" selected>4 spaces</option>
+                    <option value="tab">Tab</option>
+                </select>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" id="sort-keys">
+                <span>Sort Keys</span>
+            </label>
+            <label class="checkbox">
+                <input type="checkbox" id="line-numbers" checked>
+                <span>Line Numbers</span>
+            </label>
+        </div>
+
+        <div class="editors">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <h3>Input JSON</h3>
+                    <div class="editor-actions">
+                        <button id="paste" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 2h-4.18C14.4.84 13.3 0 12 0S9.6.84 9.18 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/>
+                            </svg>
+                            Paste
+                        </button>
+                        <button id="format" class="btn primary">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M21 3H3v18h18V3zm-2 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                            </svg>
+                            Format
+                        </button>
+                        <button id="expand" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                            Expand
+                        </button>
+                        <button id="minify" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 13H5v-2h14v2z"/>
+                            </svg>
+                            Minify
+                        </button>
+                        <button id="clear" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                            </svg>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+                <div id="json-input" class="editor"></div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-header">
+                    <h3>Formatted Output</h3>
+                    <div class="editor-actions">
+                        <button id="copy" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                            </svg>
+                            Copy
+                        </button>
+                        <button id="upload" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                            </svg>
+                            Upload
+                        </button>
+                        <button id="download" class="btn">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+                </div>
+                <div id="json-output" class="editor"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>JSON Tools</h4>
+                    <nav class="footer-nav">
+                        <a href="/json-formatter">JSON Formatter</a>
+                        <a href="/json-validator">JSON Validator</a>
+                        <a href="/json-editor">JSON Editor</a>
+                        <a href="/json-beautifier">JSON Beautifier</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4>Advanced Tools</h4>
+                    <nav class="footer-nav">
+                        <a href="/xml-formatter">XML Formatter</a>
+                        <a href="/json-diff">JSON Diff</a>
+                        <a href="/json-schema-generator">Schema Generator</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <nav class="footer-nav">
+                        <a href="/tutorials">Tutorials</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/docs">Documentation</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <nav class="footer-nav">
+                        <a href="/about">About</a>
+                        <a href="/contact">Contact</a>
+                        <a href="/privacy">Privacy Policy</a>
+                        <a href="/terms">Terms of Service</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script type="module" src="./src/json-formatter.js"></script>
+</body>
+</html> 

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Schema Generator - Create & Customize JSON Schema | Free Tool</title>
+    <meta name="description" content="Free online JSON Schema generator with customization options. Generate JSON Schema from your data, customize types and validations, and export schema. Perfect for API developers." />
+    <meta name="keywords" content="json schema generator, generate json schema, json schema creator, json schema maker, json schema validator" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Schema Generator",
+      "description": "Online tool to generate and customize JSON Schema",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "featureList": [
+        "JSON Schema Generation",
+        "Schema Customization",
+        "Type Inference",
+        "Validation Rules",
+        "Schema Export",
+        "Real-time Preview"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsonformatter.org/json-schema-generator" />
+    <meta property="og:title" content="JSON Schema Generator - Create & Customize JSON Schema | Free Tool" />
+    <meta property="og:description" content="Free online JSON Schema generator with customization options. Generate JSON Schema from your data, customize types and validations, and export schema. Perfect for API developers." />
+    <meta property="og:image" content="https://jsonformatter.org/og-image-schema.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jsonformatter.org/json-schema-generator" />
+    <meta name="twitter:title" content="JSON Schema Generator - Create & Customize JSON Schema | Free Tool" />
+    <meta name="twitter:description" content="Free online JSON Schema generator with customization options. Generate JSON Schema from your data, customize types and validations, and export schema. Perfect for API developers." />
+    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image-schema.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-schema-generator" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tool-header">
+            <h1>JSON Schema Generator</h1>
+            <p class="tool-description">Generate, customize, and validate JSON Schema from your data with advanced options</p>
+        </section>
+
+        <section class="tool-container">
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button id="generate" class="primary-button">
+                        <span class="icon">⚡</span>
+                        Generate Schema
+                    </button>
+                    <button id="validate">
+                        <span class="icon">✓</span>
+                        Validate
+                    </button>
+                    <button id="clear">Clear</button>
+                </div>
+                <div class="toolbar-group">
+                    <label class="select-label">
+                        Schema Version:
+                        <select id="schema-version">
+                            <option value="draft-07">Draft-07</option>
+                            <option value="2019-09">2019-09</option>
+                            <option value="2020-12" selected>2020-12</option>
+                        </select>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="infer-types" checked>
+                        Infer Types
+                    </label>
+                </div>
+                <div class="toolbar-group">
+                    <button id="upload">Upload</button>
+                    <button id="download">Download</button>
+                    <button id="copy">Copy</button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-sidebar">
+                    <div class="schema-options">
+                        <h3>Schema Options</h3>
+                        <div class="option-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="required-props" checked>
+                                Include Required Properties
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="examples" checked>
+                                Include Examples
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="descriptions">
+                                Add Descriptions
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="additional-props">
+                                Allow Additional Properties
+                            </label>
+                        </div>
+                        <div class="option-group">
+                            <h4>Validation Rules</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="string-limits">
+                                String Length Limits
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="number-limits">
+                                Number Range Limits
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="array-limits">
+                                Array Length Limits
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="patterns">
+                                String Patterns
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="editor-main">
+                    <div class="editor-wrapper">
+                        <h3>Input JSON</h3>
+                        <div id="json-input" class="editor"></div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <h3>Generated Schema</h3>
+                        <div id="schema-output" class="editor"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Automatic Generation</h3>
+                    <p>Generate JSON Schema automatically from your sample JSON data</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Type Inference</h3>
+                    <p>Smart type detection and validation rules based on your data</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Customization</h3>
+                    <p>Fine-tune generated schema with validation rules and constraints</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Validation</h3>
+                    <p>Test your schema against sample data in real-time</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="examples">
+            <h2>Example Generation</h2>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>Sample JSON</h3>
+                    <pre class="code-block"><code>{
+  "name": "John Doe",
+  "age": 30,
+  "email": "john@example.com",
+  "tags": ["developer", "javascript"],
+  "active": true
+}</code></pre>
+                    <div class="arrow">↓</div>
+                    <h3>Generated Schema</h3>
+                    <pre class="code-block"><code>{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name",
+    "email"
+  ]
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <h2>How to Use</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Input JSON</h3>
+                    <p>Paste your sample JSON data or upload a JSON file</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Configure Options</h3>
+                    <p>Select schema version and customize generation options</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Generate Schema</h3>
+                    <p>Click Generate to create a JSON Schema from your data</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Customize</h3>
+                    <p>Fine-tune the generated schema with validation rules</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="validation-rules">
+            <h2>Available Validation Rules</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>String Validations</h3>
+                    <ul class="feature-list">
+                        <li>minLength / maxLength</li>
+                        <li>pattern (regex)</li>
+                        <li>format (email, date, etc.)</li>
+                        <li>enum values</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Number Validations</h3>
+                    <ul class="feature-list">
+                        <li>minimum / maximum</li>
+                        <li>multipleOf</li>
+                        <li>exclusiveMinimum</li>
+                        <li>exclusiveMaximum</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Array Validations</h3>
+                    <ul class="feature-list">
+                        <li>minItems / maxItems</li>
+                        <li>uniqueItems</li>
+                        <li>contains</li>
+                        <li>additionalItems</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Object Validations</h3>
+                    <ul class="feature-list">
+                        <li>required properties</li>
+                        <li>dependencies</li>
+                        <li>propertyNames</li>
+                        <li>patternProperties</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools">
+            <h2>Related Tools</h2>
+            <div class="tools-grid">
+                <a href="/json-validator" class="tool-card">
+                    <div class="tool-icon">✓</div>
+                    <h3>JSON Validator</h3>
+                    <p>Validate JSON against schema</p>
+                </a>
+                <a href="/json-formatter" class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3>JSON Formatter</h3>
+                    <p>Format and beautify JSON data</p>
+                </a>
+                <a href="/json-editor" class="tool-card">
+                    <div class="tool-icon">✎</div>
+                    <h3>JSON Editor</h3>
+                    <p>Edit JSON with advanced features</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>What is JSON Schema?</h3>
+                <p>JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. It helps you define the structure, types, and validation rules for your JSON data.</p>
+            </div>
+            <div class="question">
+                <h3>How accurate is the type inference?</h3>
+                <p>Our type inference is highly accurate for common data types and patterns. It can detect strings, numbers, booleans, arrays, and objects, as well as special formats like dates and emails.</p>
+            </div>
+            <div class="question">
+                <h3>Can I customize the generated schema?</h3>
+                <p>Yes, you can customize the generated schema by adding validation rules, modifying property requirements, and adjusting type definitions through our user interface.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>JSON Tools</h4>
+                <nav>
+                    <a href="/json-formatter">JSON Formatter</a>
+                    <a href="/json-validator">JSON Validator</a>
+                    <a href="/json-editor">JSON Editor</a>
+                    <a href="/json-beautifier">JSON Beautifier</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Advanced Tools</h4>
+                <nav>
+                    <a href="/xml-formatter">XML Formatter</a>
+                    <a href="/json-diff">JSON Diff</a>
+                    <a href="/json-schema-generator">Schema Generator</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <nav>
+                    <a href="/tutorials">Tutorials</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/docs">Documentation</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <nav>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/json-schema-generator.js"></script>
+</body>
+</html> 

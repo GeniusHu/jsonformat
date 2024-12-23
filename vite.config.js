@@ -1,34 +1,44 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import compression from 'vite-plugin-compression'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    compression({
-      algorithm: 'gzip',
-      ext: '.gz'
-    })
-  ],
   build: {
-    outDir:'dist',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
     rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          utils: ['./src/utils/jsonFormatter.js']
-        }
+      input: {
+        main: 'index.html',
+        formatter: 'json-formatter.html',
+        validator: 'json-validator.html',
+        xmlFormatter: 'xml-formatter.html',
+        howTo: 'how-to-open-json-file.html'
       }
     }
-  }
+  },
+  server: {
+    port: 5173,
+    open: true
+  },
+  plugins: [{
+    name: 'handle-html-urls',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const routes = {
+          '/': '/index.html',
+          '/json-formatter': '/json-formatter.html',
+          '/json-validator': '/json-validator.html',
+          '/json-editor': '/json-editor.html',
+          '/xml-formatter': '/xml-formatter.html',
+          '/how-to-open-json-file': '/how-to-open-json-file.html'
+        };
+
+        const targetPath = routes[req.url];
+        if (targetPath) {
+          req.url = targetPath;
+        }
+        
+        next();
+      });
+    }
+  }],
+  publicDir: 'public'
 })
 
 

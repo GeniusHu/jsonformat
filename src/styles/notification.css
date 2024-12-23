@@ -1,0 +1,57 @@
+/* 通知容器 */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 通知样式 */
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    transform: translateX(120%);
+    transition: transform 0.3s ease-out;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* 成功通知 */
+.notification-success {
+    border-left: 4px solid #4caf50;
+}
+
+.notification-success .notification-icon {
+    color: #4caf50;
+}
+
+/* 错误通知 */
+.notification-error {
+    border-left: 4px solid #f44336;
+}
+
+.notification-error .notification-icon {
+    color: #f44336;
+}
+
+/* 图标样式 */
+.notification-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 文本样式 */
+.notification-text {
+    color: #333;
+    font-size: 14px;
+} 

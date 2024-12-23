@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Editor - Edit, Modify & Update JSON Online | Free Tool</title>
+    <meta name="description" content="Free online JSON editor with advanced features like tree view, ID renumbering, and visual editing. Edit JSON data with syntax highlighting and real-time validation. Perfect for developers." />
+    <meta name="keywords" content="json editor, edit json online, json tree editor, json id renumber, visual json editor, json structure editor" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Editor",
+      "description": "Online tool to edit and modify JSON data with advanced features",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "featureList": [
+        "Visual JSON Editing",
+        "Tree View",
+        "ID Renumbering",
+        "Syntax Highlighting",
+        "Real-time Validation",
+        "Search & Replace"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsonformatter.org/json-editor" />
+    <meta property="og:title" content="JSON Editor - Edit, Modify & Update JSON Online | Free Tool" />
+    <meta property="og:description" content="Free online JSON editor with advanced features like tree view, ID renumbering, and visual editing. Edit JSON data with syntax highlighting and real-time validation. Perfect for developers." />
+    <meta property="og:image" content="https://jsonformatter.org/og-image-editor.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jsonformatter.org/json-editor" />
+    <meta name="twitter:title" content="JSON Editor - Edit, Modify & Update JSON Online | Free Tool" />
+    <meta name="twitter:description" content="Free online JSON editor with advanced features like tree view, ID renumbering, and visual editing. Edit JSON data with syntax highlighting and real-time validation. Perfect for developers." />
+    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image-editor.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-editor" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator">JSON Validator</a>
+            <a href="/json-editor" class="active">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tool-header">
+            <h1>JSON Editor</h1>
+            <p class="tool-description">Edit and modify JSON data with advanced features like tree view, ID renumbering, and visual editing</p>
+        </section>
+
+        <section class="tool-container">
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button id="save" class="primary-button">
+                        <span class="icon">💾</span>
+                        Save
+                    </button>
+                    <button id="undo">
+                        <span class="icon">↩</span>
+                        Undo
+                    </button>
+                    <button id="redo">
+                        <span class="icon">↪</span>
+                        Redo
+                    </button>
+                </div>
+                <div class="toolbar-group">
+                    <button id="expand-all">Expand All</button>
+                    <button id="collapse-all">Collapse All</button>
+                    <button id="format">Format</button>
+                </div>
+                <div class="toolbar-group">
+                    <button id="upload">Upload</button>
+                    <button id="download">Download</button>
+                    <button id="copy">Copy</button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-sidebar">
+                    <div class="view-switcher">
+                        <button class="view-button active" data-view="tree">Tree View</button>
+                        <button class="view-button" data-view="code">Code View</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="search" placeholder="Search in JSON...">
+                        <button id="search-next">
+                            <span class="icon">⌄</span>
+                        </button>
+                    </div>
+                    <div class="advanced-tools">
+                        <h3>Advanced Tools</h3>
+                        <button id="renumber-ids" class="tool-button">
+                            <span class="icon">🔢</span>
+                            Renumber IDs
+                        </button>
+                        <button id="find-replace" class="tool-button">
+                            <span class="icon">🔄</span>
+                            Find & Replace
+                        </button>
+                        <button id="validate-schema" class="tool-button">
+                            <span class="icon">✓</span>
+                            Validate Schema
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-main">
+                    <div id="tree-editor" class="editor active"></div>
+                    <div id="code-editor" class="editor"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3>Tree View Editor</h3>
+                    <p>Edit JSON visually with an interactive tree structure view</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔢</div>
+                    <h3>ID Renumbering</h3>
+                    <p>Automatically renumber IDs in your JSON data sequentially</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search & Replace</h3>
+                    <p>Find and replace values across your entire JSON structure</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Undo/Redo</h3>
+                    <p>Full undo/redo support for all editing operations</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <h2>How to Use</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Load JSON</h3>
+                    <p>Paste your JSON data or upload a JSON file to start editing</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Choose View</h3>
+                    <p>Switch between Tree View for visual editing or Code View for direct editing</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Edit Data</h3>
+                    <p>Modify values, add/remove nodes, or use advanced tools like ID renumbering</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Save Changes</h3>
+                    <p>Save your changes and download the modified JSON file</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="advanced-features">
+            <h2>Advanced Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>ID Renumbering</h3>
+                    <div class="code-example">
+                        <h4>Before:</h4>
+                        <pre class="code-block"><code>[
+  {"id": 5, "name": "Item 1"},
+  {"id": 8, "name": "Item 2"},
+  {"id": 12, "name": "Item 3"}
+]</code></pre>
+                        <div class="arrow">↓</div>
+                        <h4>After:</h4>
+                        <pre class="code-block"><code>[
+  {"id": 1, "name": "Item 1"},
+  {"id": 2, "name": "Item 2"},
+  {"id": 3, "name": "Item 3"}
+]</code></pre>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3>Find & Replace</h3>
+                    <p>Search across all JSON values and perform batch replacements with support for:</p>
+                    <ul class="feature-list">
+                        <li>Case sensitive/insensitive search</li>
+                        <li>Regular expressions</li>
+                        <li>Path-specific replacements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="keyboard-shortcuts">
+            <h2>Keyboard Shortcuts</h2>
+            <div class="shortcuts-grid">
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + S</div>
+                    <div class="shortcut-description">Save changes</div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + Z</div>
+                    <div class="shortcut-description">Undo</div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + Y</div>
+                    <div class="shortcut-description">Redo</div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + F</div>
+                    <div class="shortcut-description">Find</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-tools">
+            <h2>Related Tools</h2>
+            <div class="tools-grid">
+                <a href="/json-formatter" class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3>JSON Formatter</h3>
+                    <p>Format and beautify your JSON data</p>
+                </a>
+                <a href="/json-validator" class="tool-card">
+                    <div class="tool-icon">✓</div>
+                    <h3>JSON Validator</h3>
+                    <p>Validate JSON syntax and find errors</p>
+                </a>
+                <a href="/json-schema-generator" class="tool-card">
+                    <div class="tool-icon">⚙️</div>
+                    <h3>Schema Generator</h3>
+                    <p>Generate JSON Schema from your data</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>How do I renumber IDs in my JSON?</h3>
+                <p>Use our ID Renumbering tool to automatically resequence all ID fields in your JSON data. Simply click the "Renumber IDs" button, and all ID values will be updated sequentially.</p>
+            </div>
+            <div class="question">
+                <h3>Can I edit JSON visually?</h3>
+                <p>Yes, our Tree View mode provides a visual interface for editing JSON. You can add, remove, and modify nodes without dealing with syntax directly.</p>
+            </div>
+            <div class="question">
+                <h3>Are my changes saved automatically?</h3>
+                <p>The editor automatically saves your changes locally. However, we recommend using the Save button or Ctrl+S to ensure all changes are preserved before downloading.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>JSON Tools</h4>
+                <nav>
+                    <a href="/json-formatter">JSON Formatter</a>
+                    <a href="/json-validator">JSON Validator</a>
+                    <a href="/json-editor">JSON Editor</a>
+                    <a href="/json-beautifier">JSON Beautifier</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Advanced Tools</h4>
+                <nav>
+                    <a href="/xml-formatter">XML Formatter</a>
+                    <a href="/json-diff">JSON Diff</a>
+                    <a href="/json-schema-generator">Schema Generator</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <nav>
+                    <a href="/tutorials">Tutorials</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/docs">Documentation</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <nav>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/json-editor.js"></script>
+</body>
+</html> 

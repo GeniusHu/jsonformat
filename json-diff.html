@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Diff Tool - Compare JSON Files & Find Differences | Free Online Tool</title>
+    <meta name="description" content="Free online JSON diff tool to compare two JSON files and highlight differences. Visual comparison with side-by-side view, highlighting changes, additions, and deletions in JSON data." />
+    <meta name="keywords" content="json diff, json compare, compare json files, json difference, json comparison tool, json diff viewer, json delta" />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Diff Tool",
+      "description": "Online tool to compare JSON files and visualize differences",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "featureList": [
+        "Side-by-side comparison",
+        "Visual diff highlighting",
+        "Structural comparison",
+        "Change detection",
+        "Copy differences",
+        "Export comparison results"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I compare two JSON files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paste your two JSON files into the left and right editors, or use the file upload buttons. The differences will be automatically highlighted, showing additions in green, deletions in red, and modifications in yellow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see a visual representation of JSON differences?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our tool provides a side-by-side view with color-coded highlighting to easily spot differences. You can also switch between different visualization modes including inline and structural views."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export the comparison results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can export the comparison results in various formats including a unified diff format, HTML report, or copy the highlighted differences to your clipboard."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jsonformatter.org/json-diff" />
+    <meta property="og:title" content="JSON Diff Tool - Compare JSON Files & Find Differences | Free Online Tool" />
+    <meta property="og:description" content="Free online JSON diff tool to compare two JSON files and highlight differences. Visual comparison with side-by-side view, highlighting changes, additions, and deletions in JSON data." />
+    <meta property="og:image" content="https://jsonformatter.org/og-image-diff.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jsonformatter.org/json-diff" />
+    <meta name="twitter:title" content="JSON Diff Tool - Compare JSON Files & Find Differences | Free Online Tool" />
+    <meta name="twitter:description" content="Free online JSON diff tool to compare two JSON files and highlight differences. Visual comparison with side-by-side view, highlighting changes, additions, and deletions in JSON data." />
+    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image-diff.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-diff" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>JSON Diff - Compare JSON Files</h1>
+        
+        <section class="diff-container">
+            <div class="toolbar">
+                <div class="view-options">
+                    <label>
+                        View Mode:
+                        <select id="view-mode">
+                            <option value="side-by-side">Side by Side</option>
+                            <option value="inline">Inline</option>
+                            <option value="structural">Structural</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="ignore-case"> Ignore Case
+                    </label>
+                    <label>
+                        <input type="checkbox" id="ignore-whitespace"> Ignore Whitespace
+                    </label>
+                </div>
+                <div class="actions">
+                    <button id="compare">Compare</button>
+                    <button id="format">Format Both</button>
+                    <button id="copy-diff">Copy Diff</button>
+                    <button id="download-report">Download Report</button>
+                </div>
+            </div>
+            <div class="editors-container">
+                <div class="editor left">
+                    <h3>Original JSON</h3>
+                    <div class="file-input">
+                        <button id="upload-left">Upload File</button>
+                        <button id="paste-left">Paste Example</button>
+                    </div>
+                    <div id="json-editor-left"></div>
+                </div>
+                <div class="editor right">
+                    <h3>Modified JSON</h3>
+                    <div class="file-input">
+                        <button id="upload-right">Upload File</button>
+                        <button id="paste-right">Paste Example</button>
+                    </div>
+                    <div id="json-editor-right"></div>
+                </div>
+            </div>
+            <div id="diff-summary" class="hidden">
+                <h3>Comparison Summary</h3>
+                <div class="stats">
+                    <span class="additions">0 additions</span>
+                    <span class="deletions">0 deletions</span>
+                    <span class="modifications">0 modifications</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Side-by-side visual comparison</li>
+                <li>Color-coded difference highlighting</li>
+                <li>Multiple view modes (side-by-side, inline, structural)</li>
+                <li>Ignore case and whitespace options</li>
+                <li>Export comparison results</li>
+                <li>Copy differences to clipboard</li>
+                <li>Detailed change summary</li>
+            </ul>
+        </section>
+
+        <section class="examples">
+            <h2>Example Comparisons</h2>
+            <div class="example-grid">
+                <div class="example-card">
+                    <h3>Simple Value Changes</h3>
+                    <div class="code-comparison">
+                        <pre class="original"><code>{
+    "name": "John",
+    "age": 30
+}</code></pre>
+                        <span class="arrow">→</span>
+                        <pre class="modified"><code>{
+    "name": "John",
+    "age": 31
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <h3>Structural Changes</h3>
+                    <div class="code-comparison">
+                        <pre class="original"><code>{
+    "user": {
+        "name": "Alice"
+    }
+}</code></pre>
+                        <span class="arrow">→</span>
+                        <pre class="modified"><code>{
+    "user": {
+        "name": "Alice",
+        "role": "admin"
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>How do I compare two JSON files?</h3>
+                <p>Paste your two JSON files into the left and right editors, or use the file upload buttons. The differences will be automatically highlighted, showing additions in green, deletions in red, and modifications in yellow.</p>
+            </div>
+            <div class="question">
+                <h3>Can I see a visual representation of JSON differences?</h3>
+                <p>Yes, our tool provides a side-by-side view with color-coded highlighting to easily spot differences. You can also switch between different visualization modes including inline and structural views.</p>
+            </div>
+            <div class="question">
+                <h3>How do I export the comparison results?</h3>
+                <p>You can export the comparison results in various formats including a unified diff format, HTML report, or copy the highlighted differences to your clipboard.</p>
+            </div>
+        </section>
+
+        <section class="related-tools">
+            <h2>Related Tools</h2>
+            <div class="tools-grid">
+                <a href="/json-formatter" class="tool-card">
+                    <h3>JSON Formatter</h3>
+                    <p>Format and beautify JSON data</p>
+                </a>
+                <a href="/json-validator" class="tool-card">
+                    <h3>JSON Validator</h3>
+                    <p>Validate JSON syntax</p>
+                </a>
+                <a href="/json-editor" class="tool-card">
+                    <h3>JSON Editor</h3>
+                    <p>Edit JSON with advanced features</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </nav>
+    </footer>
+
+    <script type="module" src="/src/json-diff.js"></script>
+</body>
+</html> 

@@ -1,46 +1,179 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-Q3VTNFXX6T');
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
     
     <!-- SEO Meta Tags -->
-    <title>JSON Formatter, Beautifier & Viewer | Free Online JSON Tools</title>
-    <meta name="description" content="Best free online JSON formatter, beautifier, and viewer with XML support. Instantly format, beautify, validate and view JSON with syntax highlighting. Convert between JSON/XML formats with our easy-to-use tools." />
-    <meta name="keywords" content="json formatter, json beautifier, json viewer, xml formatter, json pretty, json validator, json parser, json to xml converter, pretty json, online json tools, json lint, json editor, json format online, best json formatter" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jsonformatter.org/" />
-    <meta property="og:title" content="JSON Formatter, Beautifier & Viewer | Free Online JSON Tools" />
-    <meta property="og:description" content="Best free online JSON formatter, beautifier, and viewer with XML support. Instantly format, beautify, validate and view JSON with syntax highlighting. Convert between JSON/XML formats." />
-    <meta property="og:image" content="https://jsonformatter.org/og-image.png" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://jsonformatter.org/" />
-    <meta name="twitter:title" content="JSON Formatter, Beautifier & Viewer | Free Online JSON Tools" />
-    <meta name="twitter:description" content="Best free online JSON formatter, beautifier, and viewer with XML support. Instantly format, beautify, validate and view JSON with syntax highlighting. Convert between JSON/XML formats." />
-    <meta name="twitter:image" content="https://jsonformatter.org/twitter-image.png" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <title>JSON Tools - Format, Validate & Edit JSON Online</title>
+    <meta name="description" content="Free online JSON tools including formatter, validator, and editor. Format JSON with custom indentation, validate syntax, and edit with advanced features." />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://jsonformatter.org/" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <link rel="canonical" href="https://jsonformatter.org" />
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Professional JSON Tools</h1>
+                <p class="hero-description">Format, validate, and edit your JSON data with our powerful online tools.</p>
+                <div class="hero-actions">
+                    <a href="/json-formatter" class="primary-button">
+                        <span class="button-icon">⚡</span>
+                        Try JSON Formatter
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools">
+            <div class="container">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M21 3H3v18h18V3zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                            </svg>
+                        </div>
+                        <h2>JSON Formatter</h2>
+                        <p>Format and beautify your JSON data with custom indentation and syntax highlighting.</p>
+                        <ul class="tool-features">
+                            <li>Custom Indentation</li>
+                            <li>Syntax Highlighting</li>
+                            <li>Line Numbers</li>
+                        </ul>
+                        <a href="/json-formatter" class="tool-link">Format JSON →</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                            </svg>
+                        </div>
+                        <h2>JSON Validator</h2>
+                        <p>Validate your JSON data structure and quickly locate syntax errors.</p>
+                        <ul class="tool-features">
+                            <li>Error Highlighting</li>
+                            <li>Real-time Validation</li>
+                            <li>Schema Validation</li>
+                        </ul>
+                        <a href="/json-validator" class="tool-link">Validate JSON →</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                            </svg>
+                        </div>
+                        <h2>JSON Editor</h2>
+                        <p>Powerful JSON editor with real-time preview and auto-completion features.</p>
+                        <ul class="tool-features">
+                            <li>Search & Replace</li>
+                            <li>Auto-formatting</li>
+                            <li>Smart Completion</li>
+                        </ul>
+                        <a href="/json-editor" class="tool-link">Edit JSON →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="features-content">
+                    <div class="features-text">
+                        <h2>Why Choose Our Tools?</h2>
+                        <ul class="features-list">
+                            <li>
+                                <span class="feature-icon">🚀</span>
+                                <div>
+                                    <h3>Free & Online</h3>
+                                    <p>All tools are completely free and work directly in your browser.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-icon">🔒</span>
+                                <div>
+                                    <h3>Privacy First</h3>
+                                    <p>Your data stays in your browser - we don't store anything.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-icon">💻</span>
+                                <div>
+                                    <h3>Developer Friendly</h3>
+                                    <p>Built by developers for developers, with powerful features.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>JSON Tools</h4>
+                <nav class="footer-nav">
+                    <a href="/json-formatter">JSON Formatter</a>
+                    <a href="/json-validator">JSON Validator</a>
+                    <a href="/json-editor">JSON Editor</a>
+                    <a href="/json-beautifier">JSON Beautifier</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Advanced Tools</h4>
+                <nav class="footer-nav">
+                    <a href="/xml-formatter">XML Formatter</a>
+                    <a href="/json-diff">JSON Diff</a>
+                    <a href="/json-schema-generator">Schema Generator</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <nav class="footer-nav">
+                    <a href="/tutorials">Tutorials</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/docs">Documentation</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <nav class="footer-nav">
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3VTNFXX6T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q3VTNFXX6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/validator.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/assets/codemirror/addon/lint/lint.css">
+    <link rel="stylesheet" href="/assets/codemirror/addon/fold/foldgutter.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>JSON Validator - Check JSON Syntax & Schema Online | Free Tool</title>
+    <meta name="description" content="Free online JSON validator with real-time error detection. Validate JSON syntax, check against schema, and locate errors instantly. Perfect for developers." />
+    <meta name="keywords" content="json validator, json syntax checker, validate json online, json schema validator, json error checker" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jsonformatter.org/json-validator" />
+
+    <!-- 第三方库 -->
+    <script src="/assets/libs/jsonlint.js"></script>
+    
+    <!-- CodeMirror -->
+    <script src="/assets/codemirror/lib/codemirror.js"></script>
+    <script src="/assets/codemirror/mode/javascript/javascript.js"></script>
+    <script src="/assets/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="/assets/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="/assets/codemirror/addon/fold/foldcode.js"></script>
+    <script src="/assets/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="/assets/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="/assets/codemirror/addon/lint/lint.js"></script>
+    <script src="/assets/codemirror/addon/lint/json-lint.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/json-formatter">JSON Formatter</a>
+            <a href="/json-validator" class="active">JSON Validator</a>
+            <a href="/json-editor">JSON Editor</a>
+            <a href="/xml-formatter">XML Tools</a>
+        </nav>
+    </header>
+
+    <main class="validator-main">
+        <div class="settings-bar">
+            <div class="validation-options">
+                <label class="checkbox">
+                    <input type="checkbox" id="real-time-validation" checked>
+                    <span>Real-time Validation</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="line-numbers" checked>
+                    <span>Line Numbers</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="schema-validation">
+                    <span>Schema Validation</span>
+                </label>
+            </div>
+            <div class="action-buttons">
+                <button id="validate" class="btn primary">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Validate
+                </button>
+                <button id="clear" class="btn">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                    </svg>
+                    Clear
+                </button>
+                <button id="format" class="btn">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M21 3H3v18h18V3zm-2 16H5V5h14v14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+                    </svg>
+                    Format
+                </button>
+            </div>
+        </div>
+
+        <div class="editors-wrapper">
+            <div class="editors">
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <h3>JSON Input</h3>
+                        <div class="editor-actions">
+                            <button id="paste" class="btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19 2h-4.18C14.4.84 13.3 0 12 0S9.6.84 9.18 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/>
+                                </svg>
+                                Paste
+                            </button>
+                            <button id="upload" class="btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                                </svg>
+                                Upload
+                            </button>
+                            <button id="copy" class="btn">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                    <div id="json-input" class="editor"></div>
+                </div>
+
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <h3>Validation Results</h3>
+                        <div class="validation-status">
+                            <span id="status-icon" class="status-pending">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                                </svg>
+                            </span>
+                            <span id="status-text">Waiting for input...</span>
+                        </div>
+                    </div>
+                    <div id="validation-output" class="editor"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="schema-editor" class="schema-container hidden">
+            <div class="editor-header">
+                <h3>JSON Schema</h3>
+                <div class="editor-actions">
+                    <button id="validate-schema" class="btn primary">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Validate Schema
+                    </button>
+                </div>
+            </div>
+            <div id="schema-input" class="editor"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>JSON Tools</h4>
+                <nav class="footer-nav">
+                    <a href="/json-formatter">JSON Formatter</a>
+                    <a href="/json-validator">JSON Validator</a>
+                    <a href="/json-editor">JSON Editor</a>
+                    <a href="/json-beautifier">JSON Beautifier</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Advanced Tools</h4>
+                <nav class="footer-nav">
+                    <a href="/xml-formatter">XML Formatter</a>
+                    <a href="/json-diff">JSON Diff</a>
+                    <a href="/json-schema-generator">Schema Generator</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <nav class="footer-nav">
+                    <a href="/tutorials">Tutorials</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/docs">Documentation</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <nav class="footer-nav">
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./src/json-validator.js"></script>
+</body>
+</html> 
